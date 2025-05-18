@@ -21,7 +21,12 @@ class CategoriesController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $category = new Categories();
+        $category->name = $request->name;
+        $category->description = $request->description;
+        $category->save();
+
+        return json_encode(['category' => $category]);
     }
 
     public function show(string $id)
