@@ -29,9 +29,18 @@ class CategoriesController extends Controller
         return json_encode(['category' => $category]);
     }
 
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $category = Categories::find($id);
+
+        if (is_null($category)) {
+            return response()->json([
+                'msg' => 'Categoría no encontrada.',
+                'statusCode' => 404
+            ], 404);
+        }
+
+        return json_encode(['category' => $category]);
     }
 
     public function update(Request $request, string $id)
