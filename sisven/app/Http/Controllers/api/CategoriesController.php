@@ -56,6 +56,13 @@ class CategoriesController extends Controller
 
     public function destroy(string $id)
     {
-        //
+        $category = Categories::find($id);
+        $category->delete();
+
+        $categories = DB::table('categories')
+            ->select('categories.*')
+            ->get();
+
+        return json_encode(['categories' => $categories]);
     }
 }
