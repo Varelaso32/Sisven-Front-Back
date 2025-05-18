@@ -45,7 +45,13 @@ class CategoriesController extends Controller
 
     public function update(Request $request, string $id)
     {
-        //
+        $category = Categories::find($id);
+
+        $category->name = $request->name;
+        $category->description = $request->description;
+        $category->save();
+
+        return json_encode(['category' => $category]);
     }
 
     public function destroy(string $id)
