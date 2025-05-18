@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import Home from '../views/Home.vue';
+import Home from '../views/HomeView.vue';
 import Customers from '../views/Customers.vue';
 
 const routes = [
@@ -17,7 +17,7 @@ const routes = [
     path: '/about',
     name: 'About',
     // carga perezosa
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   }
 ];
 
