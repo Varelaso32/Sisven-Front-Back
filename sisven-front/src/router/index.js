@@ -1,29 +1,72 @@
-import { createRouter, createWebHashHistory } from 'vue-router';
-import Home from '../views/HomeView.vue';
-import Customers from '../views/Customers.vue';
+import { createRouter, createWebHashHistory } from "vue-router";
+
+// Vistas principales
+import Home from "../views/HomeView.vue";
+import Customers from "../views/Customers.vue";
+import Categories from "../views/Categories.vue";
+
+// Componentes de Customers
+import NewCustomer from "../components/customers/NewCustomer.vue";
+import EditCustomer from "../components/customers/EditCustomer.vue";
+
+// Componentes de Categories
+import NewCategories from "../components/categories/NewCategories.vue";
+import EditCategories from "../components/categories/EditCategories.vue";
 
 const routes = [
+  // Home
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: "/",
+    name: "Home",
+    component: Home,
+  },
+
+  // Customers
+  {
+    path: "/customers",
+    name: "Customers",
+    component: Customers,
   },
   {
-    path: '/customers',
-    name: 'Customers',
-    component: Customers
+    path: "/customers/new",
+    name: "NuevoCliente",
+    component: NewCustomer,
   },
   {
-    path: '/about',
-    name: 'About',
-    // carga perezosa
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+    path: "/customers/:id/edit",
+    name: "EditarCliente",
+    component: EditCustomer,
+  },
+
+  // Categories
+  {
+    path: "/categories",
+    name: "Categories",
+    component: Categories,
+  },
+  {
+    path: "/categories/new",
+    name: "NuevaCategoria",
+    component: NewCategories,
+  },
+  {
+    path: "/categories/:id/edit",
+    name: "EditarCategoria",
+    component: EditCategories,
+  },
+
+  // About (Lazy load)
+  {
+    path: "/about",
+    name: "About",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+  },
 ];
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
+  routes,
 });
 
 export default router;
