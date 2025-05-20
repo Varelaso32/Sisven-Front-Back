@@ -15,8 +15,12 @@ import {
   faCheck,
   faTimes,
   faHome,
-  faPencil
-} from '@fortawesome/free-solid-svg-icons';
+  faPencil,
+  faBox, 
+  faDollarSign, 
+  faBoxes, 
+  faTags, 
+} from "@fortawesome/free-solid-svg-icons";
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
@@ -37,8 +41,13 @@ library.add(
   faCheck,
   faTimes,
   faHome,
-  faPencil
+  faPencil,
+  faBox,    
+  faDollarSign, 
+  faBoxes,     
+  faTags        
 );
+
 
 createApp(App)
   .component("font-awesome-icon", FontAwesomeIcon)

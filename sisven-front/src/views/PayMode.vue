@@ -121,7 +121,7 @@ export default {
 <style scoped>
 .table thead th {
   vertical-align: middle;
-  text-align: center;
+  text-align: left;
 }
 .table tbody td {
   vertical-align: middle;
