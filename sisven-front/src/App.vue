@@ -4,6 +4,8 @@
       <router-link to="/" exact>🏠 Home</router-link>
       <router-link to="/customers">👤 Clientes</router-link>
       <router-link to="/categories">📂 Categorías</router-link>
+      <router-link to="/pay-modes">💳 Modos de Pago</router-link>
+      <router-link to="/products">🛍️ Productos</router-link>
     </nav>
     <main class="main-content">
       <router-view />
