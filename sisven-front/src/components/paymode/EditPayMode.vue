@@ -1,14 +1,16 @@
 <template>
   <div class="container text-start">
-    <h1 class="text-primary fw-bold">Editar Modo de Pago</h1>
+    <h1 class="text-success fw-bold">Editar Modo de Pago</h1>
     <div class="card">
-      <div class="card-header fw-bold">Datos del Modo de Pago</div>
+      <div class="card-header bg-success text-white fw-bold">
+        Datos del Modo de Pago
+      </div>
       <div class="card-body">
         <form @submit.prevent="updatePayMode">
           <div class="row mb-3">
             <label for="name" class="form-label">Nombre:</label>
             <div class="input-group">
-              <div class="input-group-text">
+              <div class="input-group-text bg-success text-white">
                 <font-awesome-icon icon="user" />
               </div>
               <input
@@ -23,7 +25,7 @@
           <div class="row mb-3">
             <label for="observation" class="form-label">Observación:</label>
             <div class="input-group">
-              <div class="input-group-text">
+              <div class="input-group-text bg-success text-white">
                 <font-awesome-icon icon="envelope" />
               </div>
               <textarea
@@ -35,8 +37,12 @@
             </div>
           </div>
 
-          <button type="submit" class="btn btn-primary me-2">Guardar</button>
-          <button type="button" class="btn btn-secondary" @click="cancel">
+          <button type="submit" class="btn btn-success me-2">Guardar</button>
+          <button
+            type="button"
+            class="btn btn-outline-secondary"
+            @click="cancel"
+          >
             Cancelar
           </button>
         </form>
@@ -95,7 +101,7 @@ export default {
     axios
       .get(`http://127.0.0.1:8000/api/pay-modes/${id}`)
       .then((response) => {
-        this.payMode = response.data.pay_modes; // correcto según tu controlador
+        this.payMode = response.data.pay_modes;
       })
       .catch((error) => {
         console.error("Error al obtener el modo de pago:", error);

@@ -1,7 +1,7 @@
 <template>
   <div class="container py-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
-      <h1 class="h3 text-primary">
+      <h1 class="h3 text-success fw-bold">
         <font-awesome-icon icon="money-check-alt" class="me-2" /> Modos de Pago
       </h1>
       <button
@@ -13,13 +13,19 @@
       </button>
     </div>
 
-    <div class="table-responsive shadow-sm rounded">
+    <div class="table-responsive shadow rounded">
       <table class="table table-striped table-hover align-middle mb-0">
-        <thead class="table-dark">
+        <thead class="table-success">
           <tr>
             <th>#</th>
-            <th><font-awesome-icon icon="file-signature" class="me-1" /> Nombre</th>
-            <th><font-awesome-icon icon="sticky-note" class="me-1" /> Observación</th>
+            <th>
+              <font-awesome-icon icon="file-signature" class="me-1" />
+              Nombre
+            </th>
+            <th>
+              <font-awesome-icon icon="sticky-note" class="me-1" />
+              Observación
+            </th>
             <th class="text-center">Acciones</th>
           </tr>
         </thead>
@@ -46,7 +52,7 @@
             </td>
           </tr>
           <tr v-if="payModes.length === 0">
-            <td colspan="4" class="text-center py-4 text-muted">
+            <td colspan="4" class="text-center py-4 text-muted fst-italic">
               No hay modos de pago registrados.
             </td>
           </tr>
@@ -72,10 +78,19 @@ export default {
       axios
         .get("http://127.0.0.1:8000/api/pay-modes")
         .then((response) => {
-          this.payModes = response.data.pay_modes ?? response.data.payModes ?? response.data.payModesList ?? [];
+          this.payModes =
+            response.data.pay_modes ??
+            response.data.payModes ??
+            response.data.payModesList ??
+            [];
         })
         .catch((error) => {
           console.error("Error fetching pay modes:", error);
+          Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "No se pudieron cargar los modos de pago.",
+          });
         });
     },
     deletePayMode(id) {
@@ -96,11 +111,17 @@ export default {
                 "El modo de pago ha sido eliminado.",
                 "success"
               );
-              this.payModes = response.data.pay_modes ?? [];
+              this.payModes =
+                response.data.pay_modes ??
+                this.payModes.filter((pm) => pm.id !== id);
             })
             .catch((error) => {
               console.error("Error deleting pay mode:", error);
-              Swal.fire("Error", "No se pudo eliminar el modo de pago.", "error");
+              Swal.fire(
+                "Error",
+                "No se pudo eliminar el modo de pago.",
+                "error"
+              );
             });
         }
       });
