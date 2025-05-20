@@ -5,7 +5,7 @@ import Home from "../views/HomeView.vue";
 import Customers from "../views/Customers.vue";
 import Categories from "../views/Categories.vue";
 import PayMode from "../views/PayMode.vue";
-
+import Products from "../views/Products.vue";
 
 // Componentes de Customers
 import NewCustomer from "../components/customers/NewCustomer.vue";
@@ -18,6 +18,10 @@ import EditCategories from "../components/categories/EditCategories.vue";
 // Componentes de PayModes
 import NewPayMode from "../components/paymode/NewPayMode.vue";
 import EditPayMode from "../components/paymode/EditPayMode.vue";
+
+// Componentes de Products
+import NewProduct from "../components/products/NewProduct.vue";
+import EditProduct from "../components/products/EditProduct.vue"; 
 
 const routes = [
   // Home
@@ -61,7 +65,7 @@ const routes = [
     component: EditCategories,
   },
 
-    // Pay Modes
+  // Pay Modes
   {
     path: "/pay-modes",
     name: "PayModes",
@@ -76,6 +80,23 @@ const routes = [
     path: "/pay-modes/:id/edit",
     name: "EditarModoPago",
     component: EditPayMode,
+  },
+
+  // Products (NUEVO)
+  {
+    path: "/products",
+    name: "Products",
+    component: Products,
+  },
+  {
+    path: "/products/new",
+    name: "NuevoProducto",
+    component: NewProduct,
+  },
+  {
+    path: "/products/:id/edit",
+    name: "EditarProducto",
+    component: EditProduct,
   },
 
   // About (Lazy load)
