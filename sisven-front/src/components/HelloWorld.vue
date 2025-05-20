@@ -36,19 +36,14 @@ export default {
           link: "/customers",
         },
         {
-          title: "Pedidos",
-          description: "Revisa el historial y estado de pedidos.",
-          link: "/orders",
-        },
-        {
           title: "Categorías",
           description: "Organiza tus productos por categoría.",
           link: "/categories",
         },
         {
-          title: "Reportes",
-          description: "Visualiza reportes de ventas y rendimiento.",
-          link: "/reports",
+          title: "Metodos de Pago",
+          description: "Visualiza y gestiona los métodos de pago.",
+          link: "/pay-modes",
         },
       ],
     };
