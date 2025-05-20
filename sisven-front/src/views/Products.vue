@@ -1,7 +1,7 @@
 <template>
   <div class="container py-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
-      <h1 class="h3 text-primary">
+      <h1 class="h3 text-success">
         <font-awesome-icon icon="box" class="me-2" /> Listado de Productos
       </h1>
       <button
@@ -15,14 +15,14 @@
 
     <div class="table-responsive shadow-sm rounded">
       <table class="table table-striped table-hover align-middle mb-0">
-        <thead class="table-dark">
+        <thead class="table-success text-dark">
           <tr>
             <th>#</th>
-            <th><font-awesome-icon icon="barcode" class="me-1" /> Nombre</th>
+            <th><font-awesome-icon icon="box" class="me-1" /> Nombre</th>
             <th>
               <font-awesome-icon icon="dollar-sign" class="me-1" /> Precio
             </th>
-            <th><font-awesome-icon icon="boxes" class="me-1" /> Stock</th>
+            <th><font-awesome-icon icon="warehouse" class="me-1" /> Stock</th>
             <th><font-awesome-icon icon="tags" class="me-1" /> Categoría</th>
             <th class="text-center">Acciones</th>
           </tr>
@@ -31,7 +31,7 @@
           <tr v-for="(product, index) in products" :key="product.id">
             <th scope="row">{{ index + 1 }}</th>
             <td>{{ product.name }}</td>
-            <td>{{ product.precio }}</td>
+            <td>${{ product.precio }}</td>
             <td>{{ product.stock }}</td>
             <td>{{ product.category_name }}</td>
             <td class="text-center">

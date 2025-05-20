@@ -1,16 +1,18 @@
 <template>
-  <div class="container text-start">
-    <h1 class="text-primary fw-bold">Nuevo Producto</h1>
-    <div class="card">
-      <div class="card-header fw-bold">Datos del Producto</div>
+  <div class="container text-start py-4">
+    <h1 class="text-success fw-bold mb-4">Nuevo Producto</h1>
+    <div class="card shadow-sm rounded">
+      <div class="card-header fw-bold bg-success text-white">
+        Datos del Producto
+      </div>
       <div class="card-body">
         <form @submit.prevent="saveProduct">
-          <div class="row mb-3">
+          <div class="mb-3">
             <label for="name" class="form-label">Nombre del producto:</label>
             <div class="input-group">
-              <div class="input-group-text">
+              <span class="input-group-text">
                 <font-awesome-icon icon="box" />
-              </div>
+              </span>
               <input
                 type="text"
                 class="form-control"
@@ -22,12 +24,12 @@
             </div>
           </div>
 
-          <div class="row mb-3">
+          <div class="mb-3">
             <label for="precio" class="form-label">Precio:</label>
             <div class="input-group">
-              <div class="input-group-text">
+              <span class="input-group-text">
                 <font-awesome-icon icon="dollar-sign" />
-              </div>
+              </span>
               <input
                 type="number"
                 class="form-control"
@@ -40,12 +42,12 @@
             </div>
           </div>
 
-          <div class="row mb-3">
+          <div class="mb-3">
             <label for="stock" class="form-label">Stock:</label>
             <div class="input-group">
-              <div class="input-group-text">
+              <span class="input-group-text">
                 <font-awesome-icon icon="boxes" />
-              </div>
+              </span>
               <input
                 type="number"
                 class="form-control"
@@ -58,12 +60,12 @@
             </div>
           </div>
 
-          <div class="row mb-3">
+          <div class="mb-4">
             <label for="category_id" class="form-label">Categoría:</label>
             <div class="input-group">
-              <div class="input-group-text">
+              <span class="input-group-text">
                 <font-awesome-icon icon="tags" />
-              </div>
+              </span>
               <select
                 class="form-select"
                 id="category_id"
@@ -82,8 +84,12 @@
             </div>
           </div>
 
-          <button type="submit" class="btn btn-primary me-2">Guardar</button>
-          <button type="button" class="btn btn-secondary" @click="cancel">
+          <button type="submit" class="btn btn-success me-2">Guardar</button>
+          <button
+            type="button"
+            class="btn btn-outline-secondary"
+            @click="cancel"
+          >
             Cancelar
           </button>
         </form>
